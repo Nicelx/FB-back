@@ -5,7 +5,7 @@ const app = express();
 const PORT = 5000;
 
 
-app.use(express.static(path.join(__dirname, '../client/build')));
+app.use(express.static(path.join(__dirname, '/')));
 // Middleware
 app.use(cors());
 app.use(express.json());
@@ -18,9 +18,9 @@ app.post('/api/submit', (req, res) => {
     const { name } = req.body;
     res.json({ status: 'Success', receivedName: name });
   });
-//   app.get('*', (req, res) => {
-//     res.sendFile(path.join(__dirname, '../client/build/index.html'));
-//   });
+  app.get('/', (req, res) => {
+    res.sendFile(path.join(__dirname, 'index.html'));
+  });
 // Запуск сервера
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
