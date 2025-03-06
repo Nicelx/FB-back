@@ -18,9 +18,9 @@ app.post('/api/submit', (req, res) => {
     const { name } = req.body;
     res.json({ status: 'Success', receivedName: name });
   });
-  app.get('*', (req, res) => {
-    res.sendFile(path.join(__dirname, '../client/build/index.html'));
-  });
+//   app.get('*', (req, res) => {
+//     res.sendFile(path.join(__dirname, '../client/build/index.html'));
+//   });
 // Запуск сервера
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
