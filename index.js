@@ -11,6 +11,9 @@ app.use(cors());
 app.use(express.json());
 
 // Тестовый роут
+app.get('/', (req, res) => {
+    res.sendFile(path.join(__dirname, 'index.html'));
+  });
 app.get('/api/data', (req, res) => {
   res.json({ message: 'Hello from Express!' });
 });
@@ -18,9 +21,7 @@ app.post('/api/submit', (req, res) => {
     const { name } = req.body;
     res.json({ status: 'Success', receivedName: name });
   });
-  app.get('/', (req, res) => {
-    res.sendFile(path.join(__dirname, 'index.html'));
-  });
+ 
 // Запуск сервера
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
